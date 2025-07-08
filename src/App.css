@@ -1,7 +1,4 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -39,4 +36,71 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* App.css */
+
+.homepage-bg {
+  background-color: #CE2829;       /* Tasarımdaki kırmızı */
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.homepage-content {
+  text-align: center;
+  color: white;
+  margin-top: 60px;
+  z-index: 1;
+}
+
+.homepage-title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: bold;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.homepage-slogan {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.homepage-btn {
+  background: #FDC913;
+  color: #292929;
+  border: none;
+  border-radius: 28px;
+  padding: 18px 48px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.homepage-btn:hover {
+  background: #ffe475;
+}
+
+.homepage-banner {
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  width: 720px;  /* ihtiyaca göre değiştir */
+  max-width: 90vw;
+  z-index: 0;
 }
