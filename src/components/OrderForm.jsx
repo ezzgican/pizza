@@ -7,9 +7,8 @@ import { useState } from 'react';
 
 
 
-export default function OrderForm() {
+export default function OrderForm({ onGoHome, onOrderComplete }) {
 const [hamur, setHamur] = useState("");
-const [boyut, setBoyut] = useState("");
 const [PizzaSize, setPizzaSize] = useState("");
 const [siparisNotu, setSiparisNotu] = useState("");
 const [seciliMalzemeler, setSeciliMalzemeler] = useState([]);
@@ -32,7 +31,7 @@ const malzemeListesi = [
 
 const toplam = adet * (pizzaFiyat + seciliMalzemeler.length * malzemeFiyat);
 
-
+const secimler = seciliMalzemeler.length * malzemeFiyat
 
     return (
         
@@ -41,7 +40,7 @@ const toplam = adet * (pizzaFiyat + seciliMalzemeler.length * malzemeFiyat);
                 <div className="title-nav">
              <img className="hero-title" src={logo} alt="Teknolojik Yemekler Logo" />
                 <div className="navbar">
-                    <a  href="#" className="nav-link" onClick={() => setCurrentPage('home')}>Ana Sayfa</a>
+                    <a  href="#" className="nav-link" onClick={onGoHome}>Ana Sayfa</a>
                     <a  href="#" className="nav-link-active">Sipariş Oluştur</a>
                 </div>
                 </div>
@@ -107,19 +106,41 @@ const toplam = adet * (pizzaFiyat + seciliMalzemeler.length * malzemeFiyat);
                         </FormGroup>
                     </div>
 
-                    <div className="siparis-ozet-kutu">
-                        <div className="siparis-adet">
-                            <button onClick={() => setAdet(adet > 1 ? adet - 1 : 1)}>-</button>
-                            <span>{adet} Adet</span>
-                            <button onClick={() => setAdet(adet + 1)}>+</button>
-                        </div>
-                        <div className="siparis-toplam">
-                            <span>Toplam:</span>
-                            <strong>{toplam.toFixed(2)}₺</strong>
-                        </div>
-                        <button>Sipariş Ver</button>
+
+                    <div className="ozetler-container">
+                            <div className='toplam-ozet'>
+                                <span className='toplam-baslik'>Sipariş Toplamı</span>
+                                <span className='secimm'>Seçimler: {secimler}</span>
+                                <span className='yemek'>Yemek: {pizzaFiyat}</span>
+                            </div>
+                            <div className="siparis-ozet-kutu">
+                                <div className="siparis-adet">
+                                <button onClick={() => setAdet(adet > 1 ? adet - 1 : 1)}>-</button>
+                                <span className="adetrenk">{adet} Adet</span>
+                                <button onClick={() => setAdet(adet + 1)}>+</button>
+                                </div>
+                                <div className="siparis-toplam">
+                                <span>Toplam:</span>
+                                <strong>{toplam.toFixed(2)}₺</strong>
+                                </div>
+                                <button className="siparis-buton"onClick={() => {
+                                // Sipariş verisine ihtiyacın olan tüm alanları ekle!
+                                const order = {
+                                boyut: PizzaSize,
+                                hamur,
+                                malzemeler: seciliMalzemeler,
+                                adet,
+                                toplam,
+                                siparisNotu
+                                // isim gibi başka alanlar da varsa onları da ekle!
+                                };
+                                onOrderComplete(order);
+                                }}>Sipariş Ver
+                                </button>
+                            </div>
                     </div>
 
+                    
                 </div>
   
                 

@@ -240,7 +240,7 @@ display: flex;
   transition: border-color 0.2s;
 }
 .siparis-notu-textarea:focus {
-  border-color: #ce2829;      /* Kırmızıya odaklanınca */
+  border-color: #FDC913;      /* Kırmızıya odaklanınca */
   outline: none;
 }
 
@@ -249,7 +249,7 @@ display: flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #CE2829;
+  background: #FDC913;
   color: #fff;
   padding: 12px 16px;
   margin-top: 24px;
@@ -260,7 +260,7 @@ display: flex;
 
 .siparis-adet button {
   background: #fff;
-  color: #CE2829;
+  color: #292929;
   border: none;
   border-radius: 50%;
   width: 28px;
@@ -272,5 +272,81 @@ display: flex;
 .siparis-adet span {
   min-width: 40px;
   display: inline-block;
+}
+
+.siparis-buton {
+  border-radius: 8px;
+  border:#FDC913
+}
+
+.siparis-buton:hover {
+  background: #CE2829;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(206, 40, 41, 0.15);
+}
+
+.adetrenk {
+  color: #292929;
+  font-size:small;
+}
+
+
+.ozetler-container {
+display: flex;
+flex-direction: column;
+width: 100%;
+min-width: 100%;
+min-height: 80px;
+max-width: 100%;            /* Taşmasın */
+font-size: 1rem;
+
+}
+.toplam-ozet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.siparis-ozet-kutu {
+margin: 0 0 30px 0;
+}
+
+
+.toplam-baslik{
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.container-onay {
+ background: #CE2829;
+}
+
+.onay-logo {
+  margin-top: 30px;
+
+}
+
+.onay-button {
+  background: #fdc913;
+  color: #292929;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 38px;
+  font-size: 1.2rem;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.onay-button:hover {
+background: #ffdf5b;
+transform: translateY(-2px) scale(1.04);
 }
 

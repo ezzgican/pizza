@@ -1,17 +1,21 @@
+import logo from '../../images/iteration-1-images/logo.svg';
+import OrderForm from './OrderForm';
+
 export default function SiparisOnay({ orderData, onGoHome }) {
   if (!orderData) return null;
-
+  
+  
   return (
-    <div className="container">
+    <div className="container-onay">
       <div className="hero">
-        <h1>Sipariş Alındı!</h1>
-        <p>Teşekkürler, {orderData.isim}.</p>
+        <img className="onay-logo" src={logo} alt="Teknolojik Yemekler Logo" />
+        <h1 className='onay-info'>Tebrikler Siparişiniz Alındı!</h1>
+        
         <p>
-          Siparişin: {orderData.boyut} boy, {orderData.hamur} pizza.
-        </p>
-        <p>Ek Malzemeler: {orderData.malzemeler?.join(", ")}</p>
+  {orderData.adet} adet {orderData.boyut?.toLowerCase()} boy pizzanız adresinize teslim edilmek üzere hazırlanacaktır.
+</p>
         <p>Toplam: {orderData.toplam?.toFixed(2)}₺</p>
-        <button onClick={onGoHome}>Ana Sayfa</button>
+        <button className='onay-button' onClick={onGoHome}>Ana Sayfa</button>
       </div>
     </div>
   );
