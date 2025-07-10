@@ -21,7 +21,12 @@ export default function Malzemeler({malzemeler}) {
 
     return (
     <div>
-      <Label>Malzemeler</Label>
+        <div className='malzeme-title'>
+            <Label>Malzemeler</Label>
+        </div>
+      <div className="malzemeler-uyari">
+      En Fazla 10 malzeme seçebilirsiniz. Her biri 10₺.
+      </div>
       <Form>
         {malzemeler.map((malzeme, index) => (
           <FormGroup check inline key={index}>

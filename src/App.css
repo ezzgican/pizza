@@ -108,7 +108,7 @@
 }
 .hero-title {
   align-items: center;
-  
+  margin-top: 24px;
 }
 
 
@@ -118,6 +118,32 @@
   justify-content: left;  
   
  }
+
+ .nav-link, .nav-link-active {
+  color: #fff;                 /* Beyaz yazı */
+  text-decoration: none;       /* Altı çizgisiz */
+  font-weight: 500;
+  padding: 8px 16px;           /* Daha büyük tıklama alanı */
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link-active:hover {
+  background: #fff;           /* Hoverda arka planı beyaz yap */
+  color: #CE2829;             /* Yazıyı kırmızı yap (tema kırmızın) */
+  text-decoration: none;      /* Altı çizgi olmasın */
+  cursor: pointer;
+}
+
+.nav-link-active {
+  background: #fff;           /* Aktif sayfa */
+  color: #CE2829;
+  font-weight: bold;
+  /* istersen ekstra stil de ekleyebilirsin */
+}
+
+
 
 
 
@@ -134,16 +160,87 @@
   font-size: 20px;
  }
 
- .hamur-form{
-  display: flex;
-  flex-direction: column;
+ .price {
+  font-size: 16px;
+  font-weight: bold;
  }
-  
+
  .boyut-hamur {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-
  }
 
+ .hamur {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  margin-bottom: 8px;
+ }
+
+.boyut {
+  min-width: 180px;
+  margin-bottom: 8px;
+  }
  
+.pizza-boyut-title {
+font-size: 17px;
+font-weight: bold;
+
+}
+.hamur-title {
+font-size: 17px;
+font-weight: bold;
+}
+
+.malzeme-title {
+font-size: 17px;
+font-weight: bold;
+}
+
+.malzemeler {
+flex-basis: 100%;
+margin-top: 16px;
+
+}
+
+.price-rate {
+display: flex;
+
+}
+
+.price {
+  flex: 2;
+}
+
+
+.siparis-notu-container {
+  width: 100%;
+  margin-top: 24px;           /* Üstten boşluk */
+  display: block;
+}
+
+.siparis-notu-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.siparis-notu-textarea {
+  width: 100%;
+  min-width: 100%;
+  min-height: 80px;
+  max-width: 100%;            /* Taşmasın */
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.siparis-notu-textarea:focus {
+  border-color: #ce2829;      /* Kırmızıya odaklanınca */
+  outline: none;
+}
+
