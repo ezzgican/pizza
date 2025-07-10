@@ -1,9 +1,26 @@
 import React from 'react';
 import { Form, FormGroup, Input, Label} from 'reactstrap';
+import Malzemeler from './Malzemeler'; 
+import { useState } from 'react';
 
 
 
 export default function OrderForm() {
+const [hamur, setHamur] = useState("");
+    
+const malzemeListesi = [
+  "Pepperoni",
+  "Mantar",
+  "Zeytin",
+  "Mısır",
+  "Soğan",
+  "Biber",
+  "Jalapeno",
+  "Mozzarella",
+  "Tavuk",
+  "Ananas"
+];
+
 
 
     return (
@@ -72,77 +89,20 @@ export default function OrderForm() {
                         Hamur Kalınlığı
                         </Label>
                         <Input
-                        id="exampleSelect"
-                        name="select"
                         type="select"
+                        value={hamur}
+                        onChange={e => setHamur(e.target.value)}
                         >
-                        <option>İnce Hamur</option>
-                        <option>Normal Hamur</option>
-                        <option>Kalın Hamur</option>
+                        <option value="">Seçiniz</option>
+                        <option value="İnce">İnce Hamur</option>
+                        <option value="Normal">Normal Hamur</option>
+                        <option value="Kalın">Kalın Hamur</option>
                         </Input>
                     </FormGroup>
                     </div>
                     
                     <div className="malzemeler">
-                        <Label htmlfor="exampleSelect">
-                         Malzemeler
-                        </Label>
-                        <Form>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some input
-                            </Label>
-                        </FormGroup>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some other input
-                            </Label>
-                        </FormGroup>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some input
-                            </Label>
-                        </FormGroup>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some input
-                            </Label>
-                        </FormGroup>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some input
-                            </Label>
-                        </FormGroup>
-                        <FormGroup
-                            check
-                            inline
-                        >
-                            <Input type="checkbox" />
-                            <Label check>
-                            Some input
-                            </Label>
-                        </FormGroup>
-                        </Form>
+                        <Malzemeler malzemeler={malzemeListesi} />
 
                     </div>
 
