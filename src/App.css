@@ -244,3 +244,33 @@ display: flex;
   outline: none;
 }
 
+.siparis-ozet-kutu {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #CE2829;
+  color: #fff;
+  padding: 12px 16px;
+  margin-top: 24px;
+  border-radius: 8px;
+  max-width: 100%;
+  flex: 1;
+}
+
+.siparis-adet button {
+  background: #fff;
+  color: #CE2829;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.siparis-adet span {
+  min-width: 40px;
+  display: inline-block;
+}
+

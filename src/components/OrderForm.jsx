@@ -12,6 +12,10 @@ const [hamur, setHamur] = useState("");
 const [boyut, setBoyut] = useState("");
 const [PizzaSize, setPizzaSize] = useState("");
 const [siparisNotu, setSiparisNotu] = useState("");
+const [seciliMalzemeler, setSeciliMalzemeler] = useState([]);
+const [adet, setAdet] = useState(1);
+const pizzaFiyat = 85.50;
+const malzemeFiyat = 10;
     
 const malzemeListesi = [
   "Pepperoni",
@@ -25,6 +29,8 @@ const malzemeListesi = [
   "Tavuk",
   "Ananas"
 ];
+
+const toplam = adet * (pizzaFiyat + seciliMalzemeler.length * malzemeFiyat);
 
 
 
@@ -77,7 +83,10 @@ const malzemeListesi = [
                     </div>
                     
                     <div className="malzemeler">
-                        <Malzemeler malzemeler={malzemeListesi} />
+                        <Malzemeler malzemeler={malzemeListesi}
+                                    seciliMalzemeler={seciliMalzemeler}
+                                    setSeciliMalzemeler={setSeciliMalzemeler} 
+                        />
 
                     </div>
 
@@ -98,6 +107,18 @@ const malzemeListesi = [
                         </FormGroup>
                     </div>
 
+                    <div className="siparis-ozet-kutu">
+                        <div className="siparis-adet">
+                            <button onClick={() => setAdet(adet > 1 ? adet - 1 : 1)}>-</button>
+                            <span>{adet} Adet</span>
+                            <button onClick={() => setAdet(adet + 1)}>+</button>
+                        </div>
+                        <div className="siparis-toplam">
+                            <span>Toplam:</span>
+                            <strong>{toplam.toFixed(2)}₺</strong>
+                        </div>
+                        <button>Sipariş Ver</button>
+                    </div>
 
                 </div>
   

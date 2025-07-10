@@ -3,9 +3,8 @@ import { useState } from 'react';
 
 
 
-export default function Malzemeler({malzemeler}) {
+export default function Malzemeler({ malzemeler, seciliMalzemeler, setSeciliMalzemeler }) {
 
-    const [seciliMalzemeler, setSeciliMalzemeler] = useState([]);
 
     const handleChange = (event) => {
     const { value, checked } = event.target;
@@ -35,6 +34,9 @@ export default function Malzemeler({malzemeler}) {
               value={malzeme}
               checked={seciliMalzemeler.includes(malzeme)}
               onChange={handleChange}
+              disabled={
+                !seciliMalzemeler.includes(malzeme) && seciliMalzemeler.length >= 10
+              }
             />
             <Label check>{malzeme}</Label>
           </FormGroup>
