@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../images/iteration-1-images/logo.svg';
-import { Form, FormGroup, Input, Label} from 'reactstrap';
+import {  FormGroup, Input, Label} from 'reactstrap';
 import Malzemeler from './Malzemeler'; 
 import PizzaBoyut from './PizzaBoyut';
 import { useState } from 'react';
