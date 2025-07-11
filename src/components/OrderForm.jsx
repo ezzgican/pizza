@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../images/iteration-1-images/logo.svg';
-import {  FormGroup, Input, Label} from 'reactstrap';
+import {  FormGroup, Input, Label } from 'reactstrap';
 import Malzemeler from './Malzemeler'; 
 import PizzaBoyut from './PizzaBoyut';
 import { useState } from 'react';
@@ -32,6 +32,8 @@ const malzemeListesi = [
 const toplam = adet * (pizzaFiyat + seciliMalzemeler.length * malzemeFiyat);
 
 const secimler = seciliMalzemeler.length * malzemeFiyat
+
+const isSiparisNotuGecerli = siparisNotu.trim().length >= 3;
 
     return (
         
@@ -104,7 +106,12 @@ const secimler = seciliMalzemeler.length * malzemeFiyat
                             onChange={e => setSiparisNotu(e.target.value)}
                             />
                         </FormGroup>
-                    </div>
+                        {!isSiparisNotuGecerli && (
+                        <div className="not-uyari" style={{color:"red", fontSize:"0.95rem", marginTop: 1}}>
+                        Sipariş notu en az 3 karakter olmalı.
+                        </div>
+                        )}
+                        </div>
 
 
                     <div className="ozetler-container">
@@ -123,17 +130,15 @@ const secimler = seciliMalzemeler.length * malzemeFiyat
                                 <span>Toplam:</span>
                                 <strong>{toplam.toFixed(2)}₺</strong>
                                 </div>
-                                <button className="siparis-buton"onClick={() => {
-                                // Sipariş verisine ihtiyacın olan tüm alanları ekle!
+                                <button className="siparis-buton" disabled={!isSiparisNotuGecerli} onClick={() => {
+                                
                                 const order = {
                                 boyut: PizzaSize,
                                 hamur,
                                 malzemeler: seciliMalzemeler,
                                 adet,
                                 toplam,
-                                siparisNotu
-                                // isim gibi başka alanlar da varsa onları da ekle!
-                                };
+                                siparisNotu};
                                 onOrderComplete(order);
                                 }}>Sipariş Ver
                                 </button>
